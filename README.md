@@ -21,21 +21,27 @@ The solution follows a rigorous "Database-First" approach:
 *(Note: As the live SQL server connection is restricted to the university network, below are static previews of the analysis)*
 
 ### 1. Operational Dashboard Overview
-![Dashboard Screenshot](images/dashboard_overview.png)
-*(Replace this path with your actual image filename)*
+![Dashboard Screenshot](Dashboard1.png)
+![Dashboard Screenshot](Dashboard2.png)
 
 ### 2. Relational Schema Design
 > "I designed this schema to support complex joins between Ridership and On-Time Performance."
-*(If you have an ER Diagram, put it here. If not, delete this section)*
+
+Station (stationCode, stationName, stationState, stationCity, stationURL)
+Budget (budgetId, budgetType, budgetPlanYear, budgetTotal, budgetYear, budgetAllocation, stationCode)
+Route (routeId, routeName, routeType, routeFrequency, routeHostRailroad)
+Route_OTP(routeId, routeYear, routeOTP)
+Ridership (ridershipId, ridershipYear, ridershipQuantity, stationCode)
+Serve (stationCode, routeId) 
 
 ## 💻 Key SQL Logic Showcase
 Here is a snippet of the DDL used to structure the station data:
 
 ```sql
-/* Example: Creating the Station Table with Constraints */
-CREATE TABLE [dbo].[OnTrack.Station](
-    [stationID] [int] NOT NULL,
-    [stationName] [nvarchar](255) NULL,
-    [stationState] [nvarchar](255) NULL,
-    CONSTRAINT [PK_OnTrack.Station] PRIMARY KEY CLUSTERED ([stationID] ASC)
-);
+CREATE TABLE [OnTrack.Station] (
+	stationCode CHAR(3) NOT NULL,
+	stationName VARCHAR(60),
+	stationState VARCHAR(50),
+	stationCity VARCHAR(50),
+	stationURL VARCHAR(200),
+	CONSTRAINT pk_Station_stationCode PRIMARY KEY (stationCode));
