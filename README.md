@@ -28,10 +28,15 @@ The solution follows a rigorous "Database-First" approach:
 > I designed this schema to support complex joins between Ridership and On-Time Performance.
 
 Station (stationCode, stationName, stationState, stationCity, stationURL)
+
 Budget (budgetId, budgetType, budgetPlanYear, budgetTotal, budgetYear, budgetAllocation, stationCode)
+
 Route (routeId, routeName, routeType, routeFrequency, routeHostRailroad)
+
 Route_OTP(routeId, routeYear, routeOTP)
+
 Ridership (ridershipId, ridershipYear, ridershipQuantity, stationCode)
+
 Serve (stationCode, routeId) 
 
 ## 💻 Key SQL Logic Showcase
