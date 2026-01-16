@@ -25,7 +25,7 @@ The solution follows a rigorous "Database-First" approach:
 ![Dashboard Screenshot](Dashboard2.png)
 
 ### 2. Relational Schema Design
-> "I designed this schema to support complex joins between Ridership and On-Time Performance."
+> I designed this schema to support complex joins between Ridership and On-Time Performance.
 
 Station (stationCode, stationName, stationState, stationCity, stationURL)
 Budget (budgetId, budgetType, budgetPlanYear, budgetTotal, budgetYear, budgetAllocation, stationCode)
